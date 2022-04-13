@@ -1,4 +1,4 @@
-const skills = [stupid, lazy, slow, ignorant, aloof];
+const skills = [slow, ignorant, aloof];
 
 module.exports = {
     mySkills
