@@ -13,7 +13,7 @@ function show(req, res) {
   
 
 function index(req, res) {
-    const todos = Todo.getAll();
+    const skills = skills.getAll();
     res.render('skills/index', { skills });
 };
 
