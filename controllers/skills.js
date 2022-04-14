@@ -1,11 +1,13 @@
-const skills = require('../models/skills');
+const Skill = require('../models/skills');
 const { render } = require('../server');
 
 module.exports = {
   index,
   show,
   new: newSkill,
+  create,
   delete: deleteSkill,
+  edit,
   update
 };
 
@@ -15,23 +17,32 @@ function update(req, res) {
   res.redirect(`/skills/${req.params.id}`);
 };
 
+function edit(req, res) {
+  const skill = skill.getOne(req.params.id);
+  res.render('skills/edit', { skill });
+};
+
 function deleteSkill(req, res) {
   Skill.deleteOne(req.params.somethingcrazy);
   res.redirect('/skills');
-}
+};
+
+function create(req, res) {
+  Skill.create(req.body);
+  res.redirect('/skills'); 
+};
 
 function newSkill(req, res) {
   res.render('skills/new');
 };
 
 function show(req, res) {
-    const skill = skill.getOne(req.params.id);
+    const skill = Skill.getOne(req.params.id);
     res.render('skills/show', { skill });
 };
   
 function index(req, res) {
-    const skills = skills.getAll();
+    const skills = Skill.getAll();
     res.render('skills/index', { skills });
 };
 
-//AM I EVEN GOING IN THE RIGHT DIRECTION? Never worked.
