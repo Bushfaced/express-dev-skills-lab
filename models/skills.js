@@ -6,7 +6,7 @@ const skills = [
 
 module.exports = {
     getAll,
-    mySkills,
+    getOne,
     create,
     deleteOne,
     update
@@ -30,7 +30,7 @@ function create(skill) {
     skills.push(skill);
 };
 
-function mySkills(id) {
+function getOne(id) {
     id = parseInt(id);
     return skills.find((skills) => skills.id === id);
 };
