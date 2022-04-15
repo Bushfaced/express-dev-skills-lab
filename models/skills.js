@@ -25,7 +25,7 @@ function deleteOne(id) {
 };
 
 function create(skill) {
-    skill.id = 1;
+    skill.id = Math.floor(1000 + Math.random() * 9000);
     skill.quality = false;
     skills.push(skill);
 };
