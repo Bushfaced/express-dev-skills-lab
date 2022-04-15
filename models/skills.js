@@ -1,7 +1,7 @@
 const skills = [
-    {id: 1, skill: slow},
-    {id: 2, skill: blissful-ignorance},
-    {id: 3, skill: aloof}
+    {id: 1234, skill: 'slow', quality: true},
+    {id: 5678, skill: 'blissful-ignorance', quality: true},
+    {id: 9012, skill: 'aloof', quality: true}
 ];
 
 module.exports = {
@@ -20,19 +20,19 @@ function update(id, skill) {
 
 function deleteOne(id) {
     id = parseInt(id);
-    const idx = skills.findIndex((skill) => skill.id === id);
+    const idx = skills.find((skill) => skill.id === id);
     skills.splice(idx, 1);
 };
 
 function create(skill) {
-    skill.id = Date.now() % 1;
-    skill.done = false;
+    skill.id = 1;
+    skill.quality = false;
     skills.push(skill);
 };
 
 function getOne(id) {
     id = parseInt(id);
-    return skills.find((skills) => skills.id === id);
+    return skills.find((skill) => skill.id === id);
 };
 
 

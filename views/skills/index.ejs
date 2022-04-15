@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h3>Skills as of <%= time.toLocaleString() %></h3>
+<h3>Skills</h3>
 <ul>
   <% skills.forEach(function(s) { %>
     <li>
@@ -12,7 +12,7 @@
       </form>
       <a href="/skills/<%= s.id %>"><%= s.skill %></a>
       - 
-      <%= s.done ? 'done' : 'not done' %>
+      <%= s.quality ? 'good' : 'not good' %>
     </li>
   <% }); %>
 </ul>

@@ -4,26 +4,26 @@ const { render } = require('../server');
 module.exports = {
   index,
   show,
-  new: newSkill,
   create,
-  delete: deleteOne,
+  new: newSkill,
+  delete: deleteSkill,
   edit,
   update
 };
 
 function update(req, res) {
-  req.body.done = !!req.body.done;
-  skills.update(req.params.id, req.body);
+  req.body.quality = !!req.body.quality;
+  Skill.update(req.params.id, req.body);
   res.redirect(`/skills/${req.params.id}`);
 };
 
 function edit(req, res) {
-  const skill = skill.getOne(req.params.id);
+  const skill = Skill.getOne(req.params.id);
   res.render('skills/edit', { skill });
 };
 
-function deleteOne(req, res) {
-  Skill.deleteOne(req.params.somethingcrazy);
+function deleteSkill(req, res) {
+  Skill.deleteOne(req.params.id);
   res.redirect('/skills');
 };
 
